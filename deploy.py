@@ -5,6 +5,8 @@ from python_terraform import *
 import uuid
 import json
 
+lb_url = "http://new-fargate-lb-244899165.us-west-2.elb.amazonaws.com/"
+msg = "Application URL: {}"
 # Change Directory
 class cd:
     def __init__(self, newPath):
@@ -76,6 +78,7 @@ def main():
     terraform_plan(tf)
     terraform_apply(tf)
     
+    print('\n' + msg.format(lb_url))
 # Run main function.
 if __name__ == "__main__":
     main()
