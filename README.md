@@ -32,6 +32,33 @@ Used following values directly in Terraform
 | TG | `arn:aws:elasticloadbalancing:us-west-2:111960289902:targetgroup/farget-lb-traget/cd827d19849bf44c` |
 | SG | `sg-0c1917de8cd27b6a9` |
 
+
+#### Config AWS Client
+
+Use AWS Credential CSV under `aws_credential` directory
+```shell
+$ aws configure --profile villvay
+
+AWS Access Key ID [None]: AKIARUEK2OJXMVDEPXHN
+AWS Secret Access Key [None]: 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
+Default region name [None]: us-west-2
+Default output format [None]: json
+```
+
+#### Config Terraform Provider
+
+Change terraform `provider "aws" {}` block according to the `aws configure` in `villvay-terraform/provider.tf` file.
+
+You can use an AWS credentials or configuration file to specify your credentials. The default location is `$HOME/.aws/credentials`. You can optionally specify a different location in the Terraform configuration by providing the `shared_credentials_file` argument or using the `AWS_SHARED_CREDENTIALS_FILE` environment variable. This method also supports a `profile` configuration and matching `AWS_PROFILE` environment variable
+
+```terraform
+provider "aws" {
+  region                  = "us-west-2"
+  shared_credentials_file = "/home/uchinda/.aws/credentials"
+  profile                 = "villvay"
+}
+```
+
 ### Application Prerequisites
 
 Following applications required to installed and configured in host or container use to execute the deployment script.
