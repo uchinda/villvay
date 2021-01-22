@@ -90,10 +90,15 @@ Deployment can be done through ***Terraform*** because of state tacking. script 
       - Only code deployment will happened if there is no infrastructure change.
       - If there is any changes to Infrastructure Code then both infrastructure and code deployment will happened at once.
 
+#### Run Deployment Script
+   1. Clone the repository
+   2. RUN deployment script from **Parent Directory**
+      -  `python deploy.py`
+
+
 ## Health Check Script
 
 It will give Web App response code and Health or Unhealthy according to the code.
-
    - `python checker.py`
 
 # Made Decisions
